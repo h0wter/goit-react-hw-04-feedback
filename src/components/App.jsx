@@ -12,8 +12,7 @@ export class App extends Component {
     bad: 0,
   };
 
-  addFeedback = e => {
-    const statName = e.target.name;
+  addFeedback = statName => {
     this.setState(prevState => {
       return { [statName]: prevState[statName] + 1 };
     });
@@ -37,7 +36,7 @@ export class App extends Component {
           <FeedbackOptions
             options={Object.keys(this.state)}
             onLeaveFeedback={this.addFeedback}
-          ></FeedbackOptions>
+          />
         </Section>
         <Section title={'Statistics'}>
           {this.countTotalFeedback() > 0 ? (
